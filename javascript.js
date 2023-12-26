@@ -27,7 +27,7 @@ function getPlayerChoice(){
     return choice;
 }
 
-function playRound() {
+function playRound(getPlayerChoice(), getComputerChoice()) {
     let winner;
     let player = getPlayerChoice();
     let computer = getComputerChoice();
