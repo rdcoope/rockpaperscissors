@@ -56,7 +56,6 @@ function playRound() {
 
 
 
-// git issue... test
     console.log(computer);
     console.log(player);
     console.log(winner);
@@ -68,5 +67,5 @@ function playRound() {
 // console.log("Player :: " + getPlayerChoice());
 
 while(true){
-    alert("The winner of this round is: " + playRound())
+    console.log("The winner of this round is: " + playRound())
 }
