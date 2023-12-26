@@ -1,6 +1,7 @@
-let promptAnimal = prompt("What is your favorite animal?")
+let promptAnimal = prompt("What is your favorite animal?");
 function animalTesting(animal){
-   return animal + " is my favorite animal"
+   return animal
 }
 
-console.log(animalTesting(promptAnimal));
+
+console.log(animalTesting(promptAnimal) + " is awesome!");
