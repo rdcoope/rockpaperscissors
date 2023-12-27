@@ -98,8 +98,9 @@ function game(roundWin , playerName){
     tieWins = 0;
     roundWin = gameRound();
 
-
-    while (computerWins < 5 || playerWins < 5 || tieWins < 5 ) {
+// how is this loop functional. When using || (or) the game continues on 
+// to infinity, but when switching to && (and) the game stops at 5 wins
+    while (computerWins < 5 && playerWins < 5 && tieWins < 5 ) {
         if (gameRound() === 1){
             playerWins++;
         } else if (gameRound() === 2){
