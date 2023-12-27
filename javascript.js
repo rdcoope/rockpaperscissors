@@ -1,3 +1,11 @@
+let playerName, player, computer;
+// player = getPlayerChoice();
+computer = getComputerChoice();
+
+
+
+
+
 function getComputerChoice(){
     let number = Math.floor(Math.random() * 3) + 1 ;
     let choice;
@@ -27,45 +35,64 @@ function getPlayerChoice(){
     return choice;
 }
 
-function playRound() {
-    let winner;
-    let player = getPlayerChoice();
+function playRound(playerName , player) {
+    let winnerPlayer, winnerChoice;
+    playerName = prompt("What is your name?")
+    player = getPlayerChoice();
     let computer = getComputerChoice();
+    console.log(playerName);
 
-    if (player === "Rock" && computer === "Rock"){
-        winner = "Tie, Please play again!";
-    } else if (player === "Rock" && computer === "Paper"){
-        winner = "You Lose! Paper beats Rock";
-    } else if (player === "Rock" && computer === "Scissors") {
-        winner = "You Win! Rock beats Scissors";
-    } else if (player === "Paper" && computer === "Rock"){
-        winner = "You Win! Paper beats Rock";
-    } else if (player === "Paper" && computer === "Paper"){
-        winner = "Tie, Please play again!";
-    } else if (player === "Paper" && computer === "Scissors") {
-        winner = "You Lose! Scissors beats Paper";
-    } else if (player === "Scissors" && computer === "Rock"){
-        winner = "You Lose! Rock beats Paper";
-    } else if (player === "Scissors" && computer === "Paper"){
-        winner = "You Win! Scissors beats Paper";
-    } else if (player === "Scissors" && computer === "Scissors") {
-        winner = "Tie, Please play another Round";
-    } else {
-        winner = "Choice unknown, Please choose a valid option."
-    }
 
 
 
     console.log(computer);
     console.log(player);
-    console.log(winner);
+    console.log(winnerPlayer);
 
-    return winner;
+    return winnerPlayer;
+}
+
+function gameRound(playerName, player, computer){
+
+
+    playerName = "player";
+    player = getPlayerChoice();
+    computer = getComputerChoice();
+    computerName = "Computer"
+    
+    if (player === "Rock" && computer === "Rock"){
+        winnerPlayer = 3;
+    } else if (player === "Rock" && computer === "Paper"){
+        winnerPlayer = 2;
+    } else if (player === "Rock" && computer === "Scissors") {
+        winnerPlayer = 1;
+    } else if (player === "Paper" && computer === "Rock"){
+        winnerPlayer = 1;
+    } else if (player === "Paper" && computer === "Paper"){
+        winnerPlayer = 3;
+    } else if (player === "Paper" && computer === "Scissors") {
+        winnerPlayer = 2;
+    } else if (player === "Scissors" && computer === "Rock"){
+        winnerPlayer = 2;
+    } else if (player === "Scissors" && computer === "Paper"){
+        winnerPlayer = 1;
+    } else if (player === "Scissors" && computer === "Scissors") {
+        winnerPlayer = 3;
+    } else {
+        winnerPlayer = 4
+    }
+
+    return winnerPlayer;
+
 }
 
 // console.log("Computer :: " + getComputerChoice());
 // console.log("Player :: " + getPlayerChoice());
 
-while(true){
-    console.log("The winner of this round is: " + playRound())
+let roundWin = gameRound();
+
+function game(roundWin , playerName){
+    
 }
+
+console.log(roundWin)
