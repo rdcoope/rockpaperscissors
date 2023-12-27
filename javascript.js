@@ -92,7 +92,36 @@ function gameRound(playerName, player, computer){
 let roundWin = gameRound();
 
 function game(roundWin , playerName){
-    
+    let playerWins, computerWins, tieWins;
+    playerWins = 0;
+    computerWins = 0;
+    tieWins = 0;
+    roundWin = gameRound();
+
+
+    while (computerWins < 5 || playerWins < 5 || tieWins < 5 ) {
+        if (gameRound() === 1){
+            playerWins++;
+        } else if (gameRound() === 2){
+            computerWins++;
+        } else if (gameRound() === 3){
+            tieWins++;
+        } else {
+            console.log("Try again, that is not a valid response.");
+        }
+
+        console.log("Player: " + playerWins);
+        console.log("Computer: " + computerWins);
+        console.log("Ties: " + tieWins);
+    }
+
+
+   
+
+
+
+    return playerWins, computerWins, tieWins;
+
 }
 
-console.log(roundWin)
+game();

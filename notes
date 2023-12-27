@@ -1,0 +1,9 @@
+game - pseudocode
+
+play round using function
+take winner and increment the counter for wins
+    Player wins
+    Computer wins
+    Tie
+    Do not count invalid responses
+when someone gets to 5 wins the game is over
