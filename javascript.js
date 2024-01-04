@@ -97,6 +97,7 @@ function game(roundWin , playerName){
     computerWins = 0;
     tieWins = 0;
     roundWin = gameRound();
+    //branch testing
 
 // how is this loop functional. When using || (or) the game continues on 
 // to infinity, but when switching to && (and) the game stops at 5 wins
