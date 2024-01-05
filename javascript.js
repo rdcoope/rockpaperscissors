@@ -18,8 +18,11 @@ function getComputerChoice(){
     // console.log(choice);
     return choice;
 }
+/*
 function getPlayerChoice(){
-    let playerChoice = prompt("Choose Rock (1), Paper (2), or Scissors (3)");
+    //let playerChoice = //prompt("Choose Rock (1), Paper (2), or Scissors (3)");
+    
+    
     let choice;
 
     if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "1" ) {
@@ -34,7 +37,15 @@ function getPlayerChoice(){
     // console.log(choice);
     return choice;
 }
+*/
 
+const btn = document.getElementsByTagName('button');
+console.log(btn)
+btn.addEventListener('click',(event) => {
+    console.log('clicked');
+});
+
+/*
 function playRound(playerName , player) {
     let winnerPlayer, winnerChoice;
     playerName = prompt("What is your name?")
@@ -51,7 +62,8 @@ function playRound(playerName , player) {
 
     return winnerPlayer;
 }
-
+*/
+/*
 function gameRound(playerName, player, computer){
 
 
@@ -85,10 +97,10 @@ function gameRound(playerName, player, computer){
     return winnerPlayer;
 
 }
-
+*/
 // console.log("Computer :: " + getComputerChoice());
 // console.log("Player :: " + getPlayerChoice());
-
+/*
 let roundWin = gameRound();
 
 function game(roundWin , playerName){
@@ -127,3 +139,4 @@ function game(roundWin , playerName){
 }
 
 game();
+*/
