@@ -1,11 +1,6 @@
 let playerName, player, computer;
-// player = getPlayerChoice();
+
 computer = getComputerChoice();
-
-
-
-
-
 function getComputerChoice(){
     let number = Math.floor(Math.random() * 3) + 1 ;
     let choice;
@@ -18,57 +13,40 @@ function getComputerChoice(){
     // console.log(choice);
     return choice;
 }
-/*
-function getPlayerChoice(){
-    //let playerChoice = //prompt("Choose Rock (1), Paper (2), or Scissors (3)");
-    
-    
-    let choice;
 
-    if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "1" ) {
-        choice = "Rock";
-    } else if (playerChoice.toLowerCase() == "paper" || playerChoice === "2") {
-        choice = "Paper";
-    } else if (playerChoice.toLowerCase() === "scissors" || playerChoice === "3") {
-        choice = "Scissors";
+const btn = document.querySelector('#playerChoose');
+//console.log(btn)
+let playerChoice = btn.addEventListener('click', (event) => {
+    let target = event.target;
+    
+    //console.log(target.id);
+
+    switch(target.id) {
+        case 'rock':
+            playerChoice = 'Rock'
+            console.log(playerChoice);
+            break;
+        case 'Paper':
+            playerChoice = 'Paper'
+            console.log(playerChoice);
+            break;
+        case 'Scissors':
+            playerChoice = 'Scissors'
+            console.log(playerChoice);
+            break;
+            
+
     }
-
-    // console.log(playerChoice);
-    // console.log(choice);
-    return choice;
-}
-*/
-
-const btn = document.getElementsByTagName('button');
-console.log(btn)
-btn.addEventListener('click',(event) => {
-    console.log('clicked');
+    return playerChoice
 });
+console.log(playerChoice)
 
-/*
-function playRound(playerName , player) {
-    let winnerPlayer, winnerChoice;
-    playerName = prompt("What is your name?")
-    player = getPlayerChoice();
-    let computer = getComputerChoice();
-    console.log(playerName);
-
-
-
-
-    console.log(computer);
-    console.log(player);
-    console.log(winnerPlayer);
-
-    return winnerPlayer;
-}
-*/
-/*
-function gameRound(playerName, player, computer){
+playerChoice
+function gameRound(playerName, playerChoice, computer){
 
 
     playerName = "player";
-    player = getPlayerChoice();
+    player = playerChoice;
     computer = getComputerChoice();
     computerName = "Computer"
     
@@ -97,12 +75,13 @@ function gameRound(playerName, player, computer){
     return winnerPlayer;
 
 }
-*/
+
 // console.log("Computer :: " + getComputerChoice());
 // console.log("Player :: " + getPlayerChoice());
-/*
-let roundWin = gameRound();
 
+let roundWin = gameRound();
+console.log(roundWin);
+/*
 function game(roundWin , playerName){
     let playerWins, computerWins, tieWins;
     playerWins = 0;
