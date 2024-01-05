@@ -1,15 +1,73 @@
 let playerName, player, computer;
+let playerScore = 0, computerScore = 0, roundCount = 0, roundWinner;
+
+console.log('playerScore: ' + playerScore);
+console.log('computerScore: ' + computerScore);
+console.log('Round count: ' + roundCount);
 
 computer = getComputerChoice();
 function getComputerChoice(){
     let number = Math.floor(Math.random() * 3);
     switch (number){
-            case 0: return 'Rock';
-            case 1: return 'Paper';
-            case 2: return 'Scissors';
+        case 0: return 'Rock';
+        case 1: return 'Paper';
+        case 2: return 'Scissors';
     }
 }
-console.log(getComputerChoice())
+console.log('ComputerChoice: ' + getComputerChoice())
+
+function isGameOver(){
+    playerScore === 5 || computerScore === 5
+}
+console.log('Is the game over? ' + isGameOver());
+
+let computerChoice = getComputerChoice();
+function playRound(playerChoice,computerChoice){
+    if (playerChoice === computerChoice){roundWinner = 'Tie'}
+    if (
+        (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+        (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+        (playerChoice === 'Scissors' && computerChoice === 'Paper')){
+            playerScore ++ };
+    if (
+        (playerChoice === 'Paper' && computerChoice === 'Scissors') ||
+        (playerChoice === 'Scissors' && computerChoice === 'Rock') ||
+        (playerChoice === 'Rock' && computerChoice === 'Paper')){
+            computerScore ++ };
+    roundCount ++;
+}
+
+while (playerScore<5 && computerScore <5) {
+playRound('Rock',computerChoice)
+console.log('Player: ' + playerScore)
+console.log('Computer: ' + computerScore)
+console.log('Round Count' + roundCount)
+}
+
+
+
+
+
+
+
+
+// ********* Works in progress *********
+function getPlayerChoice(choice){
+    switch(choice){
+        case 0: return 'Rock';
+        case 1: return 'Paper';
+        case 2: return 'Scissors';
+    }
+};
+const btn = document.querySelector('#playerChoose')
+btn.addEventListener('click', (event) => {
+    let target = event.target;
+
+   
+  // console.log(target.id)
+})
+
+console.log(getPlayerChoice())
 /*
 function gameRound(player){
     //let player
