@@ -2,17 +2,15 @@ let playerName, player, computer;
 
 computer = getComputerChoice();
 function getComputerChoice(){
-    let number = Math.floor(Math.random() * 3) + 1 ;
-    let choice;
-    
-    if (number === 1){ choice = "Rock";
-    } else if (number === 2){ choice = "Paper"; 
-    } else {choice = "Scissors"; }
-
-    // console.log(number);
-    // console.log(choice);
-    return choice;
+    let number = Math.floor(Math.random() * 3);
+    switch (number){
+            case 0: return 'Rock';
+            case 1: return 'Paper';
+            case 2: return 'Scissors';
+    }
 }
+console.log(getComputerChoice())
+/*
 function gameRound(player){
     //let player
     
@@ -53,7 +51,7 @@ function gameRound(player){
    })
     console.log(value)
 
-/*
+
 const btn = document.querySelector('#playerChoose');
 btn.addEventListener('click', (event) => {
     let target = event.target;
@@ -85,7 +83,7 @@ btn.addEventListener('click', (event) => {
 gameRound(playerChoice)
 
 });
-*/
+
 
 // console.log("Computer :: " + getComputerChoice());
 // console.log("Player :: " + getPlayerChoice());
