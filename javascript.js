@@ -47,19 +47,13 @@ function playRound(playerChoice,computerChoice){
     return roundWinner
 }
 
-
-
-
-
 // ******** UI ********* //
 const  player = document.querySelector('#playerScore');
 const computerUi = document.querySelector('#computerScore')
 const tie = document.querySelector('#tie');
 const roundUI = document.querySelector('#roundCount')
 const winnerUi = document.querySelector('#roundPlay')
-
-
-
+const reset = document.querySelector('#reset')
 
 const divComputer = document.createElement("div")
 const divPlayer = document.createElement('div')
@@ -88,13 +82,7 @@ roundUI.appendChild(divRound)
 console.log(roundUI)
 
 function scoring(round) {
-    /*
-    if ( round = 'Player') {
-        //playerScore ++
-       }else if (round = 'Computer') {
-       // computerScore ++
-       }else {tieCount++}
-    */
+
 divPlayer.textContent = playerScore
 divComputer.textContent = computerScore 
 divTie.textContent = tieCount
@@ -114,20 +102,23 @@ function gameEnd() {
             winner = ""
             winnerUi.textContent = "It's a Tie, Keep Playing"
         }
-    
-    
-    
     winnerUi.textContent = 'The winner is: ' + winner }
     
     
-    
+function display() {
+    divPlayer.textContent = playerScore
+    divComputer.textContent = computerScore
+    divTie.textContent = tieCount
+    divRound.textContent = roundCount
+}
+
 function isGameOver() {
     return playerScore === 5 || computerScore === 5 || roundCount === 20
 }
 
     const btn = document.querySelector('#playerChoose')
     btn.addEventListener('click', (event) => {
-        if(isGameOver()){gameEnd()}else{
+        if(!isGameOver()){
             let target = event.target
             let computer = getComputerChoice()
             switch (target.id) {
@@ -136,13 +127,24 @@ function isGameOver() {
                 case ('Paper'): scoring(playRound('Paper',computer));
                 break;
                 case ('Scissors'): scoring(playRound('Scissors',computer));
-                break
-            }
+                break;
             console.log(target.id)
             console.log(computer)
         }
-        
+    }else {gameEnd()} 
     })
+    
+    reset.addEventListener('click', function () {
+        playerScore = 0;
+        computerScore = 0;
+        tieCount = 0;
+        roundCount = 0
+
+        display()
+        winnerUi.textContent = ''
+
+    })
+    
 
 
 
