@@ -1,5 +1,5 @@
 let playerName, player, computer;
-let playerScore = 0, computerScore = 0, roundCount = 0, roundWinner;
+let playerScore = 0, computerScore = 0, roundCount = 0, roundWinner, tieCount = 0;
 
 console.log('playerScore: ' + playerScore);
 console.log('computerScore: ' + computerScore);
@@ -13,6 +13,7 @@ function getComputerChoice(){
         case 1: return 'Paper';
         case 2: return 'Scissors';
     }
+    
 }
 console.log('ComputerChoice: ' + getComputerChoice())
 
@@ -23,7 +24,9 @@ console.log('Is the game over? ' + isGameOver());
 
 let computerChoice = getComputerChoice();
 function playRound(playerChoice,computerChoice){
-    if (playerChoice === computerChoice){roundWinner = 'Tie'}
+    if (playerChoice === computerChoice){roundWinner = 'Tie'
+    tieCount ++ ;
+}
     if (
         (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
         (playerChoice === 'Paper' && computerChoice === 'Rock') ||
@@ -36,13 +39,47 @@ function playRound(playerChoice,computerChoice){
             computerScore ++ };
     roundCount ++;
 }
+const btn = document.querySelector('#playerChoose');
+btn.addEventListener('click',function getPlayerChoice(event)  {
+    let target = event.target
+    let playerChoice
+    switch (target.id){
+        case ('Rock'): playerChoice = 'Rock';
+        case ('Paper'): playerChoice = 'Paper';
+        case ('Scissors'): playerChoice ='Scissors';
+    }
+    
+})
 
-while (playerScore<5 && computerScore <5) {
-playRound('Rock',computerChoice)
-console.log('Player: ' + playerScore)
-console.log('Computer: ' + computerScore)
-console.log('Round Count' + roundCount)
+    // ******** Winner! / gameplay
+function winnerFunction(){
+    let winner = ''
+    while (playerScore < 5 && computerScore < 5 && roundCount < 20) {
+    playRound(getPlayerChoice(),getComputerChoice())
+
+    console.log('**************')
+
+    console.log('Player: ' + playerScore)
+    console.log('Computer: ' + computerScore)
+    console.log('Tie: ' + tieCount)
+
+    console.log('Round Count: ' + roundCount)
+
+    console.log('**************')
+
+    }
+    if (playerScore > computerScore){
+        winner = 'Player'
+    }else{
+        winner = 'Computer'
+    }
+    return winner
 }
+
+    console.log('Victory goes to ' + winnerFunction())
+    console.log('Player: ' + playerScore)
+    console.log('Computer: ' + computerScore)
+    console.log('Tie: ' + tieCount)
 
 
 
@@ -59,13 +96,6 @@ function getPlayerChoice(choice){
         case 2: return 'Scissors';
     }
 };
-const btn = document.querySelector('#playerChoose')
-btn.addEventListener('click', (event) => {
-    let target = event.target;
-
-   
-  // console.log(target.id)
-})
 
 console.log(getPlayerChoice())
 /*
