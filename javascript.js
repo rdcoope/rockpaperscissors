@@ -59,19 +59,6 @@ const roundUI = document.querySelector('#roundCount')
 const winnerUi = document.querySelector('#roundPlay')
 
 
-if (playerScore > computerScore){
-    winner = 'Player'
-}else if (computerScore > playerScore ){
-    winner = 'Computer'
-}else{
-    winner = ""
-    winnerUi.textContent = "It's a Tie, Keep Playing"
-}
-console.log(winner)
-
-
-winnerUi.textContent = 'The winner is: ' + winner 
-
 
 
 const divComputer = document.createElement("div")
@@ -118,24 +105,44 @@ divRound.textContent = roundCount
 
 
 
-const btn = document.querySelector('#playerChoose')
-btn.addEventListener('click', (event) => {
-    let target = event.target
-    switch (target.id) {
-        case ('Rock'): scoring(playRound('Rock',getComputerChoice()));
-        break;
-        case ('Paper'): scoring(playRound('Paper',getComputerChoice()));
-        break;
-        case ('Scissors'): scoring(playRound('Scissors',getComputerChoice()));
-        break
-    }
-})
+function gameEnd() {
+        if (playerScore > computerScore){
+            winner = 'Player'
+        }else if (computerScore > playerScore ){
+            winner = 'Computer'
+        }else{
+            winner = ""
+            winnerUi.textContent = "It's a Tie, Keep Playing"
+        }
+    
+    
+    
+    winnerUi.textContent = 'The winner is: ' + winner }
+    
+    
+    
+function isGameOver() {
+    return playerScore === 5 || computerScore === 5 || roundCount === 20
+}
 
-if ()
-/*
-const rockBtn = document.querySelector('#Rock')
-rockBtn.addEventListener('click',() => {
-    scoring(playRound('Rock', getComputerChoice()))
-})
-console.log(playerScore)
-*/
+    const btn = document.querySelector('#playerChoose')
+    btn.addEventListener('click', (event) => {
+        if(isGameOver()){gameEnd()}else{
+            let target = event.target
+            let computer = getComputerChoice()
+            switch (target.id) {
+                case ('Rock'): scoring(playRound('Rock',computer));
+                break;
+                case ('Paper'): scoring(playRound('Paper',computer));
+                break;
+                case ('Scissors'): scoring(playRound('Scissors',computer));
+                break
+            }
+            console.log(target.id)
+            console.log(computer)
+        }
+        
+    })
+
+
+
