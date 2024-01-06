@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap');
+
+
+body {
+    background-color: cornflowerblue;
+    font-family: tektur;
+    font-size: larger;
+
+}
+div {
+    border: 2px red dotted;
+    min-height: 30px;
+}
+button {
+    width: 150px;
+    height: 150px;
+}
+#scoreContainer, #playerChoose{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+.score {
+    height: 250px;
+    width: 250px;
+    background-color: darkblue;
+    color: antiquewhite;
+    font-size: larger;
+    text-align: center;
+}
+.number {
+    font-size: 150px;
+}

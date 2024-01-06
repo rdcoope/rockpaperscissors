@@ -1,4 +1,4 @@
-let playerName, player, computer;
+let computer;
 let playerScore = 0, computerScore = 0, roundCount = 0, roundWinner, tieCount = 0;
 
 console.log('playerScore: ' + playerScore);
@@ -55,7 +55,8 @@ btn.addEventListener('click',function getPlayerChoice(event)  {
 function winnerFunction(){
     let winner = ''
     while (playerScore < 5 && computerScore < 5 && roundCount < 20) {
-    playRound(getPlayerChoice(),getComputerChoice())
+    //playRound(getPlayerChoice(),getComputerChoice())
+playRound('Rock', getComputerChoice())
 
     console.log('**************')
 
@@ -76,18 +77,50 @@ function winnerFunction(){
     return winner
 }
 
-    console.log('Victory goes to ' + winnerFunction())
-    console.log('Player: ' + playerScore)
-    console.log('Computer: ' + computerScore)
-    console.log('Tie: ' + tieCount)
+//    console.log('Victory goes to ' + winnerFunction())
+ //   console.log('Player: ' + playerScore)
+//    console.log('Computer: ' + computerScore)
+//    console.log('Tie: ' + tieCount)
 
 
 
+winnerFunction()
 
 
+// ******** UI
+const  player = document.querySelector('#playerScore');
+const computerUi = document.querySelector('#computerScore')
+const tie = document.querySelector('#tie');
+const roundUI = document.querySelector('#roundCount')
+
+const divComputer = document.createElement("div")
+const divPlayer = document.createElement('div')
+const divTie = document.createElement('div')
+const divRound = document.createElement('div')
 
 
+divPlayer.setAttribute('class', 'number');
+divPlayer.textContent = playerScore
+player.appendChild(divPlayer);
+console.log(player)
 
+divComputer.setAttribute('class', 'number')
+divComputer.textContent = computerScore
+computerUi.appendChild(divComputer)
+console.log(computerUi)
+
+divTie.setAttribute('class', 'number')
+divTie.textContent = tieCount
+tie.appendChild(divTie)
+console.log(tie)
+
+divRound.setAttribute('class', 'number')
+divRound.textContent = roundCount
+roundUI.appendChild(divRound)
+console.log(roundUI)
+
+
+/*
 // ********* Works in progress *********
 function getPlayerChoice(choice){
     switch(choice){
@@ -98,6 +131,7 @@ function getPlayerChoice(choice){
 };
 
 console.log(getPlayerChoice())
+*/
 /*
 function gameRound(player){
     //let player
